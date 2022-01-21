@@ -15,6 +15,10 @@ export default function LandingPage () {
 
   if (!data) return null;
 
+
+ 
+  
+
   return(
     <div className="landing-page">
       <div className="item-1">
@@ -23,6 +27,10 @@ export default function LandingPage () {
           <Link to="/">Home</Link> 
           <Link to="archive">Archive</Link>
         </nav>
+
+        <p>
+        Photo by <a href="https://unsplash.com/@brett_ritchie_photography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brett Ritchie</a> on <a href="https://unsplash.com/s/photos/galaxy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </p>
       </div>
 
       <div className="item-2">
