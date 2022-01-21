@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 const baseURL = "https://api.nasa.gov/planetary/apod?api_key=q8Tae8I9G0Bc4qusMpLSYcxbG3R0469sowolCtPF";
@@ -18,6 +19,10 @@ export default function LandingPage () {
     <div className="landing-page">
       <div className="item-1">
         <h1>Astronomy Picture of the Day</h1>
+        <nav>
+          <Link to="/">Home</Link> 
+          <Link to="archive">Archive</Link>
+        </nav>
       </div>
 
       <div className="item-2">
@@ -31,7 +36,6 @@ export default function LandingPage () {
         <div className="description">
           <p><span>Explanation:</span> {data.explanation}</p>
         </div>
-        
       </div>
 
       <div className="item-3">

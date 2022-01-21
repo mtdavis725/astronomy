@@ -9,6 +9,11 @@
 
 body {
   background-color: $black;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('./backgroundAstronomy.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   color: $white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
@@ -16,13 +21,19 @@ body {
 
 
 ////// Page Specific Styling //////
+
+
 .landing-page {
-  margin: 1rem;
+  margin: 2.5vh auto;
+  padding: 1.5rem;
+  max-width: 1400px;
+  background-color: $secondary;
+  height: 95vh;
   display: grid;
   place-items: center;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto;
-
+  grid-template-rows: 10% 90%;
+  border-radius: 20px;
   .item-1 {
     grid-column: 1 / 13;
     grid-row: 1 / 2;
@@ -31,7 +42,6 @@ body {
   }
 
   .item-2 {
-    background-color: $secondary;
     padding: 2rem;
     grid-column: 1 / 5;
     grid-row: 2 / 3;
@@ -58,16 +68,19 @@ body {
   .item-3 {
     grid-column: 5 / 13;
     grid-row: 2 / 3;
-    align-self: stretch;
+    height: 100%;
+    overflow: hidden;
     img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      
     }
   }
 }
 
 .archive {
-  margin: 1rem;
+  margin: 1rem auto;
+  max-width: 1400px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto repeat(4, 400px);
@@ -86,12 +99,10 @@ body {
   border: 2px solid transparent;
   
   .item-1 {
-    border-radius: 20px 0 0 20px;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     overflow: hidden;
     img {
-      border-radius: 20px 0 0 20px;
       height: 100%;
       width: auto;
     }
@@ -101,7 +112,6 @@ body {
     grid-row: 1 / 2;
     background-color: $secondary;
     padding: 1rem 1.5rem;
-    border-radius: 0 20px 20px 0;
     .date {
       text-align: center;
       margin-bottom: .8rem;
