@@ -1,4 +1,4 @@
-@import './styles/variables';
+@import 'variables';
 
 ////// Global Styling //////
 * {
@@ -8,8 +8,10 @@
 }
 
 body {
+  display: grid;
+  place-items: center;
   background-color: $black;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('./backgroundAstronomy.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../backgroundAstronomy.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,28 +26,43 @@ body {
 
 
 .landing-page {
-  margin: 2.5vh auto;
-  padding: 1.5rem;
+  margin: 2.5vh;
   max-width: 1400px;
-  background-color: $secondary;
   height: 95vh;
+  background-color: $primary;
+  padding: 1.5rem;
   display: grid;
-  place-items: center;
+  place-items: space-around;
+  grid-gap: 1rem;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 10% 90%;
   border-radius: 20px;
   .item-1 {
     grid-column: 1 / 13;
     grid-row: 1 / 2;
-    justify-self: center;
-    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    nav {
+      margin-left: 2rem;
+      a {
+        margin: 0 .25rem;
+        color: $white;
+        text-decoration: none;
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
   }
 
   .item-2 {
-    padding: 2rem;
+    padding: 1rem;
     grid-column: 1 / 5;
     grid-row: 2 / 3;
     align-self: stretch;
+    overflow-y: scroll;
     .date {
       text-align: center;
       margin-bottom: .8rem;

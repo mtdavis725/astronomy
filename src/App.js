@@ -1,4 +1,4 @@
-import './App.scss';
+import './styles/App.scss';
 import LandingPage from './components/LandingPage';
 import Archive from './components/Archive';
 import { Routes, Route } from "react-router-dom";
