@@ -44,8 +44,15 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    form {
+      margin-right: 1rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-gap: 8px;
+      place-items: center;
+    }
     nav {
-      margin-left: 2rem;
+      margin: 0 2rem;
       a {
         margin: 0 .25rem;
         color: $white;
@@ -63,17 +70,18 @@ body {
     grid-row: 2 / 3;
     align-self: stretch;
     overflow-y: scroll;
-    .date {
-      text-align: center;
-      margin-bottom: .8rem;
-    }
     .title {
+      text-align: center;
       margin-bottom: .8rem;
       span, h2 {
         font-weight: 700;
       }
+      h2 {
+        margin-bottom: .25rem;
+      }
     }
     .description {
+      
       span {
         font-weight: 700;
         font-size: 18px;
