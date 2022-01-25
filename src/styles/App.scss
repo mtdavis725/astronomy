@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Lato&display=swap');
 @import 'variables';
+@import 'landingPage';
 
 ////// Global Styling //////
 * {
@@ -17,147 +19,15 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: $white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Lato, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
 }
 
-
-////// Page Specific Styling //////
-
-
-.landing-page {
-  margin: 2.5vh;
-  max-width: 1400px;
-  height: 95vh;
-  background-color: $primary;
-  padding: 1.5rem;
-  display: grid;
-  place-items: space-around;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 10% 90%;
-  border-radius: 20px;
-  .item-1 {
-    grid-column: 1 / 13;
-    grid-row: 1 / 2;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    form {
-      margin-right: 1rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      grid-gap: 8px;
-      place-items: center;
-    }
-    nav {
-      margin: 0 2rem;
-      a {
-        margin: 0 .25rem;
-        color: $white;
-        text-decoration: none;
-        &:hover {
-          color: $secondary;
-        }
-      }
-    }
-  }
-
-  .item-2 {
-    padding: 1rem;
-    grid-column: 1 / 5;
-    grid-row: 2 / 3;
-    align-self: stretch;
-    overflow-y: scroll;
-    .title {
-      text-align: center;
-      margin-bottom: .8rem;
-      span, h2 {
-        font-weight: 700;
-      }
-      h2 {
-        margin-bottom: .25rem;
-      }
-    }
-    .description {
-      
-      span {
-        font-weight: 700;
-        font-size: 18px;
-      }
-    }
-    
-  }
-
-  .item-3 {
-    grid-column: 5 / 13;
-    grid-row: 2 / 3;
-    height: 100%;
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: auto;
-      
-    }
-  }
+a {
+  text-decoration: none;
+  color: $white;
+  font-weight: 500;
 }
-
-.archive {
-  margin: 1rem auto;
-  max-width: 1400px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto repeat(4, 400px);
-  grid-gap: 1rem;
-  .item-1 {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-    text-align: center
-  }
-}
-
-.archive-item {
-  display: grid;
-  grid-template-columns: 55% 1fr;
-  grid-template-rows: auto;
-  border: 2px solid transparent;
-  
-  .item-1 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    overflow: hidden;
-    img {
-      height: 100%;
-      width: auto;
-    }
-  }
-  .item-2 {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    background-color: $secondary;
-    padding: 1rem 1.5rem;
-    .date {
-      text-align: center;
-      margin-bottom: .8rem;
-    }
-    .title {
-      margin-bottom: .8rem;
-      span, h2 {
-        font-weight: 700;
-      }
-    }
-    .description {
-      span {
-        font-weight: 700;
-        font-size: 18px;
-      }
-    }
-  }
-}
-
-
-
 
 ////// Animations //////
 @keyframes rotate {
