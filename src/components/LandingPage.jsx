@@ -3,13 +3,18 @@ import axios from 'axios';
 
 const baseURL = "https://api.nasa.gov/planetary/apod?api_key=q8Tae8I9G0Bc4qusMpLSYcxbG3R0469sowolCtPF";
 
-/// YYYY-MM-DD
-const todaysDate = new Date().toISOString().slice(0, 10);
+/// Format Date to always return correct Date regardless of time zone
+const dateUnformatted = new Date();
+const myTZO = 300;
+const dateFormatted = new Date(dateUnformatted.getTime() + (60000*(dateUnformatted.getTimezoneOffset()-myTZO)));
+
+/// Convert Date to string YYYY-MM-DD
+const todaysDate = dateFormatted.toISOString().slice(0, 10); 
 
 export default function LandingPage () {
   const [data, setData] = useState(null);
   const [date, setDate] = useState(todaysDate);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); 
   
   useEffect(() => {
     axios.get(baseURL + `&date=${date}&thumbs=true`).then((response) => {
@@ -28,7 +33,7 @@ export default function LandingPage () {
     e.preventDefault();
     if(e.target.value > todaysDate) {
       setLoading(false);
-      alert(`Invalid date entry: Selected date entry cannot be past ${data.date}`)
+      alert(`Invalid date entry: Selected date entry cannot be past ${todaysDate}`)
     } else {
       setLoading(true);
       setDate(e.target.value);
@@ -36,8 +41,7 @@ export default function LandingPage () {
   }
 
   return(
-    <div className="landing-page">
-      
+    <div className="landing-page"> 
       <div className="item-1">
         <h1>Astronomy Picture of the Day</h1>
       </div>
@@ -58,15 +62,19 @@ export default function LandingPage () {
       </div>
 
       <div className="item-3">
-        { data.hdurl ? 
-        <img src={data.hdurl} alt={data.date + "APOD"} /> : 
-        <div>
-          <video src={data.url} /> 
-          <a href={data.url}>Link to {data.date} APOD Video</a>
-        </div> }
-      </div>
+        { loading ?
+        <div className='loading-image'>
+          <img src="apple-touch-icon.png" className="rotate" alt="moon" />
+          <h2>Loading...</h2>
+        </div> :
+        data.hdurl ? 
+          <img src={data.hdurl} alt={data.date + "APOD"} /> : 
+          <div className="media">
+            <iframe src={data.url + "&loop=1"} title={data.date + "APOD Video"} frameBorder="0" allowFullScreen></iframe>
+          </div>  
+          }
+      </div> 
     </div>
-
     
   )
 }
