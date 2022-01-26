@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import loadingIcon from '../images/loading-icon.png';
 import axios from 'axios';
 
 const baseURL = "https://api.nasa.gov/planetary/apod?api_key=q8Tae8I9G0Bc4qusMpLSYcxbG3R0469sowolCtPF";
@@ -24,6 +25,7 @@ export default function LandingPage () {
     .catch(error => {
       alert(`Error: ${error.message}`);
       console.error('There was an error!', error);
+      setLoading(false);
   });
   }, [date]);
 
@@ -64,7 +66,7 @@ export default function LandingPage () {
       <div className="item-3">
         { loading ?
         <div className='loading-image'>
-          <img src="apple-touch-icon.png" className="rotate" alt="moon" />
+          <img src={loadingIcon} className="rotate" alt="moon" />
           <h2>Loading...</h2>
         </div> :
         data.hdurl ? 
