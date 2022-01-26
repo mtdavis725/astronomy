@@ -16,6 +16,7 @@ export default function LandingPage () {
   const [data, setData] = useState(null);
   const [date, setDate] = useState(todaysDate);
   const [loading, setLoading] = useState(true); 
+  const [displayModal, setDisplayModal] = useState(false);
   
   useEffect(() => {
     axios.get(baseURL + `&date=${date}&thumbs=true`).then((response) => {
@@ -70,11 +71,19 @@ export default function LandingPage () {
           <h2>Loading...</h2>
         </div> :
         data.hdurl ? 
-          <img src={data.hdurl} alt={data.date + "APOD"} /> : 
+          <img src={data.hdurl} alt={data.date + "APOD"} onClick={() => setDisplayModal(true)} /> : 
           <div className="media">
             <iframe src={data.url + "&loop=1"} title={data.date + "APOD Video"} frameBorder="0" allowFullScreen></iframe>
           </div>  
           }
+          { displayModal && 
+          <div className="modal">
+            <span className="close" onClick={() => setDisplayModal(false)} >&times;</span>
+            <div id="caption">
+              <h2>{data.title}</h2>
+            </div>
+            <img className="modal-content" src={data.hdurl} alt={data.date + "APOD"} />
+          </div> }
       </div> 
     </div>
     
